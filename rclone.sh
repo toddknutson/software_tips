@@ -146,6 +146,9 @@ rclone copy -v --s3-disable-checksum --s3-chunk-size 1G --s3-upload-concurrency 
 rclone check -vv --size-only --one-way very_large_file.tar.gz todds_umn_ceph:Bucket_Work_MSI/Projects
 
 
+# Copy files directly from one "remote" to another "remote."
+# For example, copy "Bucket_Work_MSI/Projects/file.txt" from ceph to google drive (skipping panasas all together)
+rclone copy -v todds_umn_ceph:Bucket_Work_MSI/Projects/file.txt todds_umn_gdrive:Work_MSI/Projects
 
 
 #######################################################################
