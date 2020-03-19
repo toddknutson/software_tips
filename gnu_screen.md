@@ -7,11 +7,12 @@ Todd Knutson
 
 ## Introduction
 
-When connecting to remote systems using `ssh`, sometimes the connection can fail or you many need to shutdown your computer and reconnect later. Using GNU Screen will (1) allow your remote session to continue running even if you connection is broken, and (2) will allow you to reconnect to your "still running" terminal session later.
+When connecting to remote systems using `ssh`, sometimes the connection can fail or you many need to shutdown your computer and reconnect later. Using GNU Screen will (1) allow your remote session to continue running even if your connection is broken, and (2) will allow you to reconnect to your "still running" terminal session later.
 
 
 This is how I do it. I am not a networking expert, so there might be better or more useful ways of accomplishing the same goal.
 
+NOTE: I am using some special flags in my `ssh` commands (e.g. `-Y -A -t -X -C`) or my `qsub` commands (e.g. `-X -v DISPLAY`) to allow for X11 forwarding (you may want or not need these flags?). 
 
 ## Connect to UMN network via VPN
 
@@ -37,7 +38,6 @@ Running the above command will direct your connection to one of three possible l
 ```
 hostname
 # login02
-
 ```
 
 
@@ -55,18 +55,18 @@ This will clear your terminal window and you are now running inside a GNU Screen
 
 ## Connect to HPC nodes (mesabi/mangi)
 
-* Run an `ssh` command to connect to a HPC node:
+* Run an `ssh` command to connect to an HPC node:
 
-```
-ssh -t -X -C mesabi
-```
+	```
+	ssh -t -X -C mesabi
+	```
 
 * Do any work as usual on the HPC nodes, including launching batch jobs, etc.
 * Or you can start an interactive job:
 
-```
-qsub -I -X -v DISPLAY -q interactive -l walltime=1:00:00,nodes=1:ppn=1,mem=4GB 
-```
+	```
+	qsub -I -X -v DISPLAY -q interactive -l walltime=1:00:00,nodes=1:ppn=1,mem=4GB 
+	```
 
 
 
