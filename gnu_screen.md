@@ -78,7 +78,9 @@ If you lose your internet connection, you can reconnect to your "still running" 
 * Open a new terminal window/tab
 * Remember your original MSI login hostname
 * Connect to MSI using a specific hostname (e.g. `login02`):
-	`ssh -Y -A USERNAME@login02.msi.umn.edu`
+	```
+	ssh -Y -A USERNAME@login02.msi.umn.edu
+	```
 * List the GNU Screen sessions currently running on that host:
 	
 	```
@@ -89,7 +91,7 @@ If you lose your internet connection, you can reconnect to your "still running" 
 	```
 
 * If you have multiple screen sessions running, find the name of the session that you want to re-attach (e.g. `2020-03-19a`).
-* To reconnect to a screen session, provide the full session name including the prefixed numbers (e.g. `27223.2020-03-19a`):
+* To reconnect to a screen session, replace SESSIONNAME below with the full session name including the prefixed numbers (e.g. `27223.2020-03-19a`):
 
 	```
 	screen -rd SESSIONNAME
