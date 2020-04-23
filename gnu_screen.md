@@ -108,13 +108,13 @@ If you lose your internet connection, you can reconnect to your "still running" 
 You can delete all screen sessions from the login host by running the following command on a MSI login node (e.g. `login01`, `login02`, or `login03`). Note: you can have GNU Screen sessions on any of the three nodes. Use `screen -ls` to see what sessions are still running.
 
 ```
-screen -ls | cut -d. -f1 | awk '\''{print }'\'' | xargs -I{} screen -X -S {} quit
+screen -ls | cut -d. -f1 | grep -v "screens\|Sockets" | awk '{print $1}' | xargs -I{} screen -X -S {} quit
 ```
 
 That is a lot to remember, so I created an alias by adding the following to my `~/.bashrc` file. Then I simply run `screenclean` to wipe out any old sessions.
 
 ```
-alias screenclean='screen -ls | cut -d. -f1 | awk '\''{print }'\'' | xargs -I{} screen -X -S {} quit'
+alias screenclean='screen -ls | cut -d. -f1 | grep -v "screens\|Sockets" | awk '{print $1}' | xargs -I{} screen -X -S {} quit'
 ```
 
 
