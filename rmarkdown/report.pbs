@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=1,mem=12GB,walltime=0:30:00
+#PBS -m a
+#PBS -M $USER@umn.edu
+#PBS -A $MYGROUP 
+#PBS -W group_list=$MYGROUP
+#PBS -q amdsmall
+
+echo "["$(date)"] Script start."
+
+PROJ_DIR=/panfs/roc/groups/0/lmnp/knut0297/software/tips
+cd $PROJ_DIR
+
+
+# Load software (some modules were built by Todd)
+module load R/3.6.1_mkl
+module load texinfo/6.5  
+module load texlive/20131202
+module load /home/lmnp/knut0297/software/modulesfiles/magick/7.0.8-23
+module load /home/lmnp/knut0297/software/modulesfiles/tree/1.7.0
+module load /home/lmnp/knut0297/software/modulesfiles/pandoc/2.9.1.1
+
+
+Rscript --vanilla ${PROJ_DIR}/report.R
