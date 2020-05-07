@@ -1,10 +1,19 @@
 ---
 title: "Project Title"
 output:
-html_document:
-  toc: true
-pdf_document:
-  toc: true
+    html_document:
+        keep_md: no
+        highlight: default
+        smart: false
+        theme: cerulean #cerulean flatly
+        toc: true
+        toc_depth: 3
+        toc_float: 
+            collapsed: true
+        number_sections: true
+        df_print: paged
+    pdf_document:
+        toc: true
 
 ---
 
@@ -12,6 +21,8 @@ pdf_document:
 knitr::opts_chunk$set(echo = TRUE)
 library(base)
 ```
+
+
 
 
 
