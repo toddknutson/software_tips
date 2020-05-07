@@ -148,3 +148,14 @@ This is your data analysis file, written in R Markdown.
     
     
     
+## Launch the PBS job
+
+Finally, to create the output files (see examples), run the PBS job.
+
+```
+qsub report.pbs
+
+# Or run it on the command line:
+# bash report.pbs
+```
+
