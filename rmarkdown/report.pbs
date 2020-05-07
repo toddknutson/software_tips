@@ -8,7 +8,7 @@
 
 echo "["$(date)"] Script start."
 
-PROJ_DIR=/panfs/roc/groups/0/lmnp/knut0297/software/tips
+PROJ_DIR=/home/lmnp/knut0297/software/tips/rmarkdown
 cd $PROJ_DIR
 
 

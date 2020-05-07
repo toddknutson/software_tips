@@ -12,8 +12,8 @@ library(rmarkdown)
 
 
 
-proj_dir <- "/panfs/roc/groups/0/lmnp/knut0297/software/tips"
-report_name <- paste0("report_", "project_title")
+proj_dir <- "/home/lmnp/knut0297/software/tips/rmarkdown"
+report_name <- "output_project"
 
 
 # ---------------------------------------------------------------------
