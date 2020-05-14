@@ -2,8 +2,6 @@
 #PBS -l nodes=1:ppn=1,mem=12GB,walltime=0:30:00
 #PBS -m a
 #PBS -M $USER@umn.edu
-#PBS -A $MYGROUP 
-#PBS -W group_list=$MYGROUP
 #PBS -q amdsmall
 
 echo "["$(date)"] Script start."
