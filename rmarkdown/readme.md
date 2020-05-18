@@ -17,8 +17,6 @@ This file sets up an environment for running R and other software required for g
 
     #!/bin/bash
     #PBS -l nodes=1:ppn=1,mem=12GB,walltime=0:30:00
-    #PBS -m a
-    #PBS -M $USER@umn.edu
     #PBS -q amdsmall
 
     echo "["$(date)"] Script start."
