@@ -12,7 +12,7 @@ The local repo is located here:
 `rclone` is like `rsync` for transferring data between cloud platforms (e.g. panasas, ceph, Google Drive, etc.).
 
 
-[Rclone example](rclone/rclone.sh)
+[Rclone example](rclone/readme.md)
 
 
 ## GNU Screen
