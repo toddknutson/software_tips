@@ -1,6 +1,6 @@
 
 
-# How to use `rclone` on MSI systems.
+# How to use Rclone on MSI systems.
 
 Todd Knutson   
 2020-05-22    
