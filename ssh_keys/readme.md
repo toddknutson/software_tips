@@ -153,7 +153,42 @@ You can specify additional `ssh` settings for your connection in two ways: (1) k
 
 
 
+## Add your private key to your Mac's "Keychain" app
 
+* This will allow you to "not" enter your ssh key passphrase every time you connect (it should even prevent you from entering your ssh passphrase after reboots).
+
+	```
+	ssh-add -K ~/.ssh/id_rsa_mykey1
+	ssh-add -A
+	```
+
+
+* You can do this automatically every time you reboot by entering the following to your Mac's `~/.bashrc` file:
+
+
+	```
+	# ---------------------------------------------------------------------
+	# Start the ssh agent
+	# ---------------------------------------------------------------------
+	
+	# Make sure we are attached to a tty
+	if /usr/bin/tty > /dev/null
+	then
+		# Check the output of "ssh-add -l" for identities
+		ssh-add -l | grep 'no identities' > /dev/null
+		if [ $? -eq 0 ]
+		then
+			# Load your identities.
+			echo "Adding IDs to ssh-agent"
+			ssh-add -K ~/.ssh/id_rsa_mykey1
+			ssh-add -A
+		else
+			# echo "Not adding keys to ssh-agent"
+			:
+		fi
+	fi
+	```
+	
 
 
 ## Test the connection using your key
