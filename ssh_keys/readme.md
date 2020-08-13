@@ -107,12 +107,10 @@ Basically, we need to add our public key to the `$HOME/.ssh/authorized_keys` fil
 
 ## Optimize your `ssh` connection 
 
-You can specify additional `ssh` settings for your connection in two ways: (1) key-value pairs in a `~/.ssh/config` file, or (2) list flags on the command line
+You can specify additional `ssh` settings for your connection using a ssh config file.
 
 
-
-
-* Create an ssh config file
+* Create an ssh config file on your Mac
 	
 	```
 	(local-Mac)$ nano ~/.ssh/config
@@ -139,16 +137,6 @@ You can specify additional `ssh` settings for your connection in two ways: (1) k
 		NoHostAuthenticationForLocalhost yes
 		XAuthLocation /opt/X11/bin/xauth # make sure this is correct on your system
 		Compression yes # equivalent to -C on command line
-	```
-		
-
-
-
-
-* Use flags on the command line (only the essential flags specified)
-	
-	```
-	(local-Mac)$ ssh -i $HOME/.ssh/id_rsa_mykey1 -A -Y USER@login.msi.umn.edu
 	```
 
 
@@ -193,15 +181,9 @@ You can specify additional `ssh` settings for your connection in two ways: (1) k
 
 ## Test the connection using your key
 
-* If you did not create an ssh config file that specifies your private key, use the `-i` flag when connecting
 
-	```
-	(local-Mac)$ ssh -i $HOME/.ssh/id_rsa_mykey1 USER@login.msi.umn.edu
-	```
+* If you specified your your ssh private key (IdentityFile) in your ssh config file (you don't need to specify it again on the command line). In addition, since we loaded your private key (IdentityFile) into the `ssh-agent` using the `ssh-add` commands, _you should "not" need to specify your private key on the command line, or type your passphrase!_
 
-
-* If you specified your IdentityFile in your ssh config file (you don't need to specify it again on the command line):
-(local-Mac)$ ssh USER@login.msi.umn.edu
 
 	```
 	(local-Mac)$ ssh USER@login.msi.umn.edu
@@ -209,7 +191,11 @@ You can specify additional `ssh` settings for your connection in two ways: (1) k
 
 
 
+* Hop to other MSI nodes. Since we are using the `ssh-agent` to forward your key, you should not need to enter your passphrase when connecting to other nodes at MSI.
 
+	```
+	(login01.msi.umn.edu)$ ssh mesabi
+	```
 
 
 
