@@ -26,6 +26,19 @@ I use GNU Screen to manage my ssh connections to MSI. This way, if my network co
 
 I like to create reports using R Markdown syntax. These files can be rendered using R and other software on MSI systems. 
 
-[R Markdown  example](rmarkdown/readme.md)
+[R Markdown example](rmarkdown/readme.md)
+
+
+
+
+
+## SSH Keys
+
+This is how I set up `ssh` keys to connect to MSI systems.
+
+[ssh keys example](ssh_keys/readme.md)
+
+
+
 
 
