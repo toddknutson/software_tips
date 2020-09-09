@@ -177,9 +177,9 @@ eval $(tmux showenv -s SSH_CONNECTION); eval $(tmux showenv -s SSH_AUTH_SOCK); e
 
 #### Special note for R users
 
-If you reattach to a session running an R console, your X11 `DISPLAY` will be old and X11 windows will not work properly. I have not been able to solve this problem for an R console that was running on a compute node. However, the procedure below works for R consoles running on Stratus and MSI login nodes:
+If you reattach to a session running an R console, your X11 `DISPLAY` will be old and X11 windows will not work properly. I have not been able to solve this problem for an R console that was running on a compute node. However, the procedure below works for R consoles running on Stratus:
 
-* Open a new tmux window (tab). This will inherit the proper `DISPLAY` variable when printedin bash: `echo $DISPLAY`. 
+* Open a new tmux window (tab). This will inherit the proper `DISPLAY` variable when printed in bash: `echo $DISPLAY`. 
 * Copy the variable's value (e.g. `localhost:13.0`)
 * Go back to your _old window_ still running an R console. Explicitly set the `DISPLAY` variable in that console using the R function: `Sys.setenv(DISPLAY = "localhost:13.0")`
 * Test your X11 window by running creating a simple plot, `plot(1:10, 1:10)`, which should open the X11 window. 
@@ -195,6 +195,14 @@ You can delete all tmux sessions from the HPC login host by running the followin
 ```
 tmux kill-session
 ```
+
+## Important note: Best practices
+
+When using `tmux`, all of MSI's best practices still apply. In particular, you should not use any login nodes (`login.msi.umn.edu` or `mesabi/mangi.msi.umn.edu`) to run CPU or memory intensive tasks. It's a best practice to not run anything on these nodes (not even `cp` or `mv` commands). Thus, your `tmux` sessions will persist until you kill them (or until the login nodes are rebooted), but you should not have anything intensive running inside those terminals, unless you're in an interactive PBS job. 
+
+When using `tmux` on a Stratus VM, you are always connected to your full compute resources. In this case, leaving your active, CPU-intensive, processes running in a `tmux` session over long timeframes makes the most sense.
+
+
 
 
 
