@@ -62,7 +62,7 @@ hostname
 
 ## Load the `tmux` software
 
-After connecting to the MSI HPC login node, we need to load the `tmux` software. I have installed the software as a personal module -- but you can load my version or install it yourself.
+After connecting to the MSI HPC login node, we need to load the `tmux` software. MSI has an old tmux version (1.8) installed at `/bin/tmux`. I have installed the latest version (3.1b) as a personal module -- but you can load my version or install it yourself. Loading my version will automatically load a dependency library (libevent). 
 
 
 ```
