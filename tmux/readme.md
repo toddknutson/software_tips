@@ -230,6 +230,22 @@ For example, the scrolling behavior can be improved, tab bar colors can be chang
 
 
 
+## Alternatives
+
+Tmux is not the only way to solve this problem. Below are a few other ideas!
+
+* GNU Screen. An early terminal multiplexer with fewer features than `tmux` and less development, but gets the job done. [https://www.gnu.org/software/screen](https://www.gnu.org/software/screen)
+
+* MSI's NICE linux desktop sessions with compute resources: [https://www.msi.umn.edu/support/faq/how-do-i-obtain-graphical-connection-using-nice-system](https://www.msi.umn.edu/support/faq/how-do-i-obtain-graphical-connection-using-nice-system)
+
+* `nohup command &` Adding an `&` to the end of your command runs it in a subshell. `nohup` simply changes the default action of `SIGHUP` to `ignore` and then immediately executes your command. More info: [https://stackoverflow.com/questions/15595374/whats-the-difference-between-nohup-and-ampersand](https://stackoverflow.com/questions/15595374/whats-the-difference-between-nohup-and-ampersand) and 
+[https://www.quora.com/What-is-the-difference-between-running-a-process-with-nohup-screen-and-using-upstart](https://www.quora.com/What-is-the-difference-between-running-a-process-with-nohup-screen-and-using-upstart)
+
+
+* Use `bash`'s built-in commands. `Ctrl+Z` suspends a program. Use `bg` to run the process in the background and `disown` to detach it from your current terminal session. Running `jobs` can list all the backgrounded process. Then you can use `fg` to run the process in foreground again as long as it didn't get detached. More info: [https://www.shell-tips.com/linux/disown-a-running-shell-process-and-reattach-it-to-a-new-screen](https://www.shell-tips.com/linux/disown-a-running-shell-process-and-reattach-it-to-a-new-screen)
+
+
+
 
 
 ## References
