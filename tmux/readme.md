@@ -113,6 +113,8 @@ Tmux uses a mechanism called "key bindings" to navigate or manipulate the progra
 * Switch between windows (e.g. tabs), type `PREFIX` followed by the window number (e.g `2`)
 * See all available sessions and windows, type `PREFIX w`. Use the arrow keys and return key to select a different window.
 * Exit a window (i.e. kill the window, not the session), type `PREFIX` `&`
+* Split a window into two vertical panes, type `PREFIX` `%`. Then you can switch between each pane by typing `PREFIX` and the left `←` or right arrow key `→`.
+
 
 
 
@@ -196,12 +198,22 @@ You can delete all tmux sessions from the HPC login host by running the followin
 tmux kill-session
 ```
 
-## Important note: Best practices
+## Best practices
 
-When using `tmux`, all of MSI's best practices still apply. In particular, you should not use any login nodes (`login.msi.umn.edu` or `mesabi/mangi.msi.umn.edu`) to run CPU or memory intensive tasks. It's a best practice to not run anything on these nodes (not even `cp` or `mv` commands). Thus, your `tmux` sessions will persist until you kill them (or until the login nodes are rebooted), but you should not have anything intensive running inside those terminals, unless you're in an interactive PBS job. 
+When using `tmux`, all of MSI's best practices still apply. In particular, you should not use any login nodes (`login.msi.umn.edu` or `mesabi/mangi.msi.umn.edu`) to run CPU or memory intensive tasks. Your `tmux` sessions will persist until you kill them (or until the login nodes are rebooted on maintenance day).
 
 When using `tmux` on a Stratus VM, you are always connected to your full compute resources. In this case, leaving your active, CPU-intensive, processes running in a `tmux` session over long timeframes makes the most sense.
 
+
+
+### Ideal use-cases for `tmux` on MSI:
+
+* Starting an interactive PBS job on a compute node. This gives you the benefit of using compute resources and being able to detach/attach to your active session. Like any other interactive job, request only the walltime needed to complete your tasks. Tmux will keep your session alive, but when your PBS job walltime ends, the prompt will return to the login node.
+* Launching and monitoring batch PBS jobs.
+* Browsing the filesystem.
+* Viewing or editing scripts (split panes are great for this).
+* Pushing/pulling from GitHub.
+* Using multiple terminal windows at one time (e.g. for viewing many different filesystem locations) without having to ssh connect for each window.
 
 
 
