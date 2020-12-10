@@ -1,6 +1,12 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=1,mem=12GB,walltime=0:30:00
-#PBS -q amdsmall
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=0:30:00
+#SBATCH --mem=12gb
+#SBATCH --error=%x.e%j 
+#SBATCH --output=%x.o%j
+#SBATCH --partition=amdsmall
 
 echo "["$(date)"] Script start."
 

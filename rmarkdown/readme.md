@@ -2,22 +2,28 @@
 
 Todd Knutson  
 2020-05-05  
-
+last update: 2020-12-10
 
 
 ## Introduction
 
-You will need to create three files: (1) `report.pbs`, (2) `report.R`, and (3) `report.Rmd` located in a project directory (e.g. `/my/working/dir`).
+You will need to create three files: (1) `report.slurm`, (2) `report.R`, and (3) `report.Rmd` located in a project directory (e.g. `/my/working/dir`).
 
 
-## (1) Create a PBS job file: `report.pbs`
+## (1) Create a SLURM job file: `report.slurm`
 
 This file sets up an environment for running R and other software required for generating various R Markdown outputs (HTML, PDF, Word, etc.). Then it simply runs the `report.R` file using the `Rscript` command.
 
 
-    #!/bin/bash
-    #PBS -l nodes=1:ppn=1,mem=12GB,walltime=0:30:00
-    #PBS -q amdsmall
+	#!/bin/bash
+	#SBATCH --nodes=1
+	#SBATCH --ntasks-per-node=1
+	#SBATCH --cpus-per-task=1
+	#SBATCH --time=0:30:00
+	#SBATCH --mem=12gb
+	#SBATCH --error=%x.e%j 
+	#SBATCH --output=%x.o%j
+	#SBATCH --partition=amdsmall
 
     echo "["$(date)"] Script start."
 
@@ -151,14 +157,14 @@ This is your data analysis file, written in R Markdown.
     
     
     
-## Launch the PBS job
+## Launch the SLURM job
 
-Finally, to create the output files (see examples), run the PBS job.
+Finally, to create the output files (see examples), run the SLURM job.
 
 ```
-qsub report.pbs
+sbatch report.slurm
 
 # Or run it on the command line:
-# bash report.pbs
+# bash report.slurm
 ```
 

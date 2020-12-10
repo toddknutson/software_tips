@@ -208,8 +208,8 @@ When using `tmux` on a Stratus VM, you are always connected to your full compute
 
 ### Ideal use-cases for `tmux` on MSI:
 
-* Starting an interactive PBS job on a compute node. This gives you the benefit of using compute resources and being able to detach/attach to your active session. Like any other interactive job, request only the walltime needed to complete your tasks. Tmux will keep your session alive, but when your PBS job walltime ends, the prompt will return to the login node.
-* Launching and monitoring batch PBS jobs.
+* Starting an interactive SLURM job on a compute node. This gives you the benefit of using compute resources and being able to detach/attach to your active session. Like any other interactive job, request only the walltime needed to complete your tasks. Tmux will keep your session alive, but when your SLURM job walltime ends, the prompt will return to the login node.
+* Launching and monitoring batch SLURM jobs.
 * Browsing the filesystem.
 * Viewing or editing scripts (split panes are great for this).
 * Pushing/pulling from GitHub.

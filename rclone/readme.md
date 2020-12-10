@@ -4,7 +4,7 @@
 
 Todd Knutson   
 2020-05-22    
-
+last update: 2020-12-10
 
 
 ## Introduction
@@ -16,8 +16,7 @@ Rclone is a data transfer tool that moves files from `source` to `destination`, 
 
 MSI has an `rclone` module installed on their system. Alternatively, you can load Todd's `rclone` module (which is newer and contains some recently added advanced features). 
 
-	module load rclone/1.38
-	module load /home/lmnp/knut0297/software/modulesfiles/rclone/1.46
+	module load /home/lmnp/knut0297/software/modulesfiles/rclone/1.52.2
 
 
 ## UMN Google Drive
@@ -34,13 +33,18 @@ MSI has an `rclone` module installed on their system. Alternatively, you can loa
 * `rclone config` ANSWERS:
 
 	* n (new remote connection)
-	* todds_umn_gdrive (provide it a "remote" name)
-	* 9 (google drive)
-	* leave blank
-	* leave blank
-	* n (copy/paste link into browser, authorize google drive to use UMN account)
-	* n (not team drive)
-	* y (yes this is OK)
+	* name> todds_umn_gdrive (provide it a "remote" name)
+	* storage> 13 (google drive)
+	* client_id> (leave blank)
+	* client_secret> (leave blank)
+	* scope> 1 (Full access all files, excluding Application Data Folder)
+	* root_folder_id> (leave blank)
+	* service_account_file> (leave blank)
+	* Edit advanced config> No
+	* Remote config> No (headless machine)
+	* Please go to the following link> (copy/paste link into browser, authorize google drive to use UMN account, copy the verification code provided by Google, paste back into terminal prompt)
+	* Configure this as a team drive> No (not team drive)
+	* y (Yes this is OK)
 	* q (quit)
 
 
@@ -94,7 +98,7 @@ MSI has an `rclone` module installed on their system. Alternatively, you can loa
 
 
 * Create (or modify) an rclone config file. This process only needs to be done once. The resulting config file is stored in your home directory. 
-**NOTE: you can get your access_keys from a the bottom of this website (you must be logged in). [https://www.msi.umn.edu/content/second-tier-storage](https://www.msi.umn.edu/content/second-tier-storage)**
+**NOTE: you can get your access_keys from a the bottom of this website (you must be logged in). [https://www.msi.umn.edu/content/second-tier-storage](https://www.msi.umn.edu/content/second-tier-storage)**. You may also be able to get these values by running: `s3info -u $USER`
 
 		rclone config
 		cat $HOME/.config/rclone/rclone.conf
@@ -102,16 +106,18 @@ MSI has an `rclone` module installed on their system. Alternatively, you can loa
 
 * `rclone config` ANSWERS:
 	* n (new remote connection)
-	* todds_umn_ceph (provide it a "remote" name)
-	* 4 (Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc))
-	* 3 (Ceph)
-	* 1 (Enter AWS credentials in the next step)
-	* (copy/paste "access_key_id" from msi.umn.edu)
-	* (copy/paste "secret_access_key" from msi.umn.edu)
-	* 1 (Use this if unsure. Will use v4 signatures and an empty region.)
-	* s3.msi.umn.edu (Endpoint for S3 API)
-	* leave blank -- press enter (location_constraint)
-	* 1 ("private")
+	* name> todds_umn_ceph (provide it a "remote" name)
+	* Storage> 4 (Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc))
+	* provider> 3 (Ceph)
+	* env_auth> 1 (Enter AWS credentials in the next step)
+	* access_key_id> (copy/paste "access_key_id" from msi.umn.edu)
+	* secret_access_key> (copy/paste "secret_access_key" from msi.umn.edu)
+	* region> 1 (Use this if unsure. Will use v4 signatures and an empty region.)
+	* endpoint> s3.msi.umn.edu (Endpoint for S3 API)
+	* location_constraint> (leave blank)
+	* acl> 1 ("private")
+	* server_side_encryption> 1 (none)
+	* sse_kms_key_id> 1 (none)
 	* n (no, do not edit advanced config)
 	* y (yes, this is OK)
 	* q (quit)
