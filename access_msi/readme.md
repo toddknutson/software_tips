@@ -27,9 +27,9 @@ I recommend using the following software for running bioinformatics analysis. So
 
 Apple Mac:  
 
-* SFTP client: Cyberduck [https://cyberduck.io](https://cyberduck.io) or Transmit [https://panic.com/transmit/](https://panic.com/transmit/) (Transmit is my personal favorite)
+* SFTP client: Cyberduck [https://cyberduck.io](https://cyberduck.io) or Transmit [https://panic.com/transmit](https://panic.com/transmit) (Transmit is my personal favorite)
 * SSH terminal: Terminal.app (that comes with Apple Macs in the `Applications/Utilities` folder) or iTerm2 [https://www.iterm2.com](https://www.iterm2.com)  
-* Text Editor: BBedit [https://www.barebones.com/products/bbedit/](https://www.barebones.com/products/bbedit/)    
+* Text Editor: BBedit [https://www.barebones.com/products/bbedit](https://www.barebones.com/products/bbedit)    
 
 
 Windows:  
@@ -42,7 +42,7 @@ Windows:
 
 ### Connecting to MSI
 
-> **Note**: You can watch a screencast of how to log on to MSI using this link: [https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0](https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0)
+> **Note**: You can watch a screencast of how to log on to MSI using this link. This video is currently a little out of date, but I think still works. [https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0](https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0)
 
 
 
@@ -52,7 +52,7 @@ Connections to MSI software and data can be done using an SFTP (secure file tran
 #### How to connect from a Windows computer
 Open the SSH terminal app. If you are using PuTTY, configure the app with the following details:
 
-Hostname: `mesabi.msi.umn.edu` (or `USER@mangi.msi.umn.edu`)  
+Hostname: `mesabi.msi.umn.edu` (or `mangi.msi.umn.edu`)  
 Username: your email prefix/MSI username (e.g. `knut0297`)
 
 Click "connect", which will prompt you for your UMN email password.
