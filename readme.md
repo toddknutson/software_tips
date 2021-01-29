@@ -7,6 +7,17 @@ The local repo is located here:
     /home/lmnp/knut0297/software/tips
 
 
+
+## MSI access and connection
+
+Connecting to MSI resources can be pretty quick and easy. Click the link for my basic introduction and favorite connection tools.
+
+
+[MSI access](access_msi/readme.md)
+
+
+
+
 ## Rclone
 
 `rclone` is like `rsync` for transferring data between cloud platforms (e.g. panasas, ceph, Google Drive, etc.).
