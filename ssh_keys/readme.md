@@ -21,10 +21,10 @@ Below indicates the command prompt for your local laptop Mac:
 (local-Mac)$ 
 ```
 
-Below indicates the command prompt for a MSI login node:
+Below indicates the command prompt for a MSI HPC login node:
 
 ```
-(login01.msi.umn.edu)$ 
+(mangi.msi.umn.edu)$ 
 ```
 
 
@@ -82,10 +82,10 @@ Basically, we need to add our public key to the `$HOME/.ssh/authorized_keys` fil
 	
 	
 	# Log into MSI host
-	(local-Mac)$ ssh USER@login.msi.umn.edu
+	(local-Mac)$ ssh USER@mangi.msi.umn.edu
 	
 	# Open the authorized keys file
-	(login01.msi.umn.edu)$ nano $HOME/.ssh/authorized_keys
+	(mangi.msi.umn.edu)$ nano $HOME/.ssh/authorized_keys
 	
 	# Paste your clipboard text at the end of this file. 
 	# Save (Ctrl - X)
@@ -95,7 +95,7 @@ Basically, we need to add our public key to the `$HOME/.ssh/authorized_keys` fil
 * Or use the ssh copy tool:
 
 	```
-	(local-Mac)$ ssh-copy-id -i $HOME/.ssh/id_rsa_mykey1 USER@login.msi.umn.edu
+	(local-Mac)$ ssh-copy-id -i $HOME/.ssh/id_rsa_mykey1 USER@mangi.msi.umn.edu
 	
 	```
 
@@ -186,7 +186,7 @@ You can specify additional `ssh` settings for your connection using a ssh config
 
 
 	```
-	(local-Mac)$ ssh USER@login.msi.umn.edu
+	(local-Mac)$ ssh USER@mangi.msi.umn.edu
 	```
 
 
@@ -194,7 +194,7 @@ You can specify additional `ssh` settings for your connection using a ssh config
 * Hop to other MSI nodes. Since we are using the `ssh-agent` to forward your key, you should not need to enter your passphrase when connecting to other nodes at MSI.
 
 	```
-	(login01.msi.umn.edu)$ ssh mesabi
+	(mangi.msi.umn.edu)$ ssh mesabi
 	```
 
 

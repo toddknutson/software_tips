@@ -17,7 +17,7 @@ When connecting to remote systems using `ssh`, sometimes the connection can fail
 This is how I do it. I am not a networking expert, so there might be better or more useful ways of accomplishing the same goal. Also, this example is focused on connecting a MacBook to MSI's linux servers. Using a Windows computer might require some differences. 
 
 
-I am using some special flags in my `ssh` commands (e.g. `-Y -A -t -X -C`) or my `qsub` commands (e.g. `-X -v DISPLAY`) to allow for X11 forwarding (you may want or not need these flags?). 
+I am using some special flags in my `ssh` commands (e.g. `-Y -A -t -X -C`) or my `salloc` commands (e.g. `-Y`) to allow for X11 forwarding (you may want or not need these flags?). 
 
 
 ## Connect to UMN network via VPN
@@ -28,31 +28,22 @@ To use MSI systems, you'll need to be on campus or connected to the UMN network 
 
 
 
-## Connect to MSI login node
+## Connect to HPC login node (`mesabi` or `mangi`)
 
 Replace `USERNAME` with your MSI username.
 
 ```
-ssh -Y -A USERNAME@login.msi.umn.edu
+ssh -Y -A USERNAME@mangi.msi.umn.edu
 ```
 
 
 
 
-## Connect to HPC login node (`mesabi` or `mangi`)
-
-* Run an `ssh` command to connect to an HPC node:
-
-	```
-	ssh -t -X -C mesabi
-	```
-
-
-Running the above command will direct your connection to one of multiple possible login hosts automatically (`ln0001`, `ln0002`, etc. on mesabi; or `ln1001` or `ln1002` on mangi). We need to remember which exact hostname was used for our connection. Running the `hostname` command will tell us.
+Running the above command will direct your connection to one of multiple possible HPC login hosts automatically (`ln0001`, `ln0002`, etc. on mesabi; or `ln1001` or `ln1002` on mangi). We need to remember which exact hostname was used for our connection. Running the `hostname` command will tell us.
 
 ```
 hostname
-# ln0001
+# ln1001
 ```
 
 
@@ -66,7 +57,7 @@ After connecting to the MSI HPC login node, we need to load the `tmux` software.
 
 
 ```
-module load /home/lmnp/knut0297/software/modulesfiles/tmux/3.1b_centos6
+MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load tmux/3.1b_centos6
 ```
 
 
@@ -99,7 +90,7 @@ This will clear your terminal window and you are now running inside a tmux sessi
 * Or you can start an interactive job:
 
 	```
-	qsub -I -X -v DISPLAY -q interactive -l walltime=1:00:00,nodes=1:ppn=1,mem=4GB 
+	salloc --nodes=1 --ntasks-per-node=1 --partition=interactive --mem=8gb --cpus-per-task=1 --time=01:00:00 bash -c 'ssh -A -Y $(scontrol show hostnames | head -n 1)'	
 	```
 
 
@@ -140,16 +131,13 @@ If you lose your internet connection, you can reconnect/reattach to your "still 
 
 * Close your "broken connection" terminal window/tab in your Terminal.app or iTerm2.app
 * Open a new terminal window/tab
-* Connect to MSI:
+* Remember your original MSI HPC login (e.g. `ln1001` on `mangi`) node hostname and directly connect to it using steps below:
 
 	```
-	ssh -Y -A USERNAME@login.msi.umn.edu
-	```
+	ssh -Y -A USERNAME@mangi.msi.umn.edu
 	
-* Remember your original MSI HPC login (e.g. `ln0001` on `mesabi`) node hostname and directly connect to it using the hostname format below:
-
-	```
-	ssh in-ln0001.mesabi.msi.umn.edu
+	# If you connect to a different login node (e.g. ln1002, instead of ln1001), ssh to the original node:
+	ssh ln1001
 	```
 
 * Reattach the tmux session currently running on that host:

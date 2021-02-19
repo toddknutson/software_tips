@@ -16,7 +16,7 @@ Rclone is a data transfer tool that moves files from `source` to `destination`, 
 
 MSI has an `rclone` module installed on their system. Alternatively, you can load Todd's `rclone` module (which is newer and contains some recently added advanced features). 
 
-	module load /home/lmnp/knut0297/software/modulesfiles/rclone/1.52.2
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load rclone/1.52.2
 
 
 ## UMN Google Drive

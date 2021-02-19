@@ -39,6 +39,28 @@ Windows:
 * Text Editor: Notepad++ [https://notepad-plus-plus.org](https://notepad-plus-plus.org)  
 
 
+#### SFTP app preferences
+
+* Transmit
+
+	1. Transmit > Preferences...
+	2. (General tab) Default FTP client: Transmit
+	3. (General tab) Windows open with: None & None
+	4. (General tab) Tab title shows: Folder
+	5. (Files tab) Double Click Action: Edit in External Editor
+	6. (Files tab) Custom Editors: + to add new, File Extension: xlsx; Choose: Microsoft Excel
+	7. (Files tab) Custom Editors: + to add new, File Extension: pdf; Choose: Preview
+	8. (Files tab) Custom Editors: + to add new, File Extension: txt; Choose: BBEdit
+	9. (Files tab) Custom Editors: + to add new, File Extension: *; Choose: BBEdit
+	10. ... Repeat for all your favorite file types and apps.
+
+* Cyberduck
+	1. Cyberduck > Preferences...
+	2. (Browser tab) Double click opens file in external editor (check yes)
+	3. (Editor tab) Choose BBEdit
+
+	
+	
 
 ### Connecting to MSI
 
