@@ -54,3 +54,11 @@ This is how I set up `ssh` keys to connect to MSI systems.
 
 
 
+
+## Viewing PDFs in X11 windows
+
+I use a tool called `mupdf-x11` to view PDFs saved on MSI tier1 Panasas.
+
+[mupdf example](mupdf/readme.md)
+
+
