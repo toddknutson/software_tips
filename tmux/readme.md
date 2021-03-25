@@ -17,7 +17,7 @@ When connecting to remote systems using `ssh`, sometimes the connection can fail
 This is how I do it. I am not a networking expert, so there might be better or more useful ways of accomplishing the same goal. Also, this example is focused on connecting a MacBook to MSI's linux servers. Using a Windows computer might require some differences. 
 
 
-I am using some special flags in my `ssh` commands (e.g. `-Y -A -t -X -C`) or my `salloc` commands (e.g. `-Y`) to allow for X11 forwarding (you may want or not need these flags?). 
+I am using some special flags in my `ssh` commands (e.g. `-Y -A -t -X -C`) or my `srun` commands (e.g. `--x11`) to allow for X11 forwarding (you may want or not need these flags?). 
 
 
 ## Connect to UMN network via VPN
@@ -90,7 +90,7 @@ This will clear your terminal window and you are now running inside a tmux sessi
 * Or you can start an interactive job:
 
 	```
-	salloc --nodes=1 --ntasks-per-node=1 --partition=interactive --mem=8gb --cpus-per-task=1 --time=01:00:00 bash -c 'ssh -A -Y $(scontrol show hostnames | head -n 1)'	
+	srun --pty --x11 --nodes=1 --ntasks-per-node=1 --tmp=16G --partition=interactive --mem=8gb --cpus-per-task=1 --time=1:00:00 bash -i
 	```
 
 
