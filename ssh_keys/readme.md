@@ -48,56 +48,56 @@ This only needs to be done once -- alternatively, you can use an existing key-pa
 
 * Create a new key-pair by starting the interactive program: `ssh-keygen`:
 
-	```
-	(local-Mac)$ cd $HOME
-	(local-Mac)$ ssh-keygen -b 4096 -f $HOME/.ssh/id_rsa_mykey1	
-	```
-	
-	
+    ```
+    (local-Mac)$ cd $HOME
+    (local-Mac)$ ssh-keygen -b 4096 -f $HOME/.ssh/id_rsa_mykey1	
+    ```
+
+
 * Enter passphrase: Use a long passphrase (it can contain spaces and ideally would not use standard dictionary words). We'll set this up so you will NOT need to type the passphrase every time you ssh to a host. If you're using a Mac, we'll add your passphrase to your macOS-Keychain, so you will not need to type the passphrase after reboots either!
 
 
-	```
-	(local-Mac)$ XXXXXXXXXXXXXXXXXXXXXXXXXXX
-	```
+    ```
+    (local-Mac)$ XXXXXXXXXXXXXXXXXXXXXXXXXXX
+    ```
 
 * Add a comment to the key (which will help you find it later). I just use the key name:
 
-	```
-	(local-Mac)$ ssh-keygen -f $HOME/.ssh/id_rsa_mykey1 -o -c -C "id_rsa_mykey1"
-	```
+    ```
+    (local-Mac)$ ssh-keygen -f $HOME/.ssh/id_rsa_mykey1 -o -c -C "id_rsa_mykey1"
+    ```
 
 ## Copy your public key to MSI login host
 
 Basically, we need to add our public key to the `$HOME/.ssh/authorized_keys` file that is located on the MSI server in your home .ssh directory. There are a multiple ways to do this. Below are two options:
 
 * Copy/paste the text from your public key on your local Mac, to the authorized_keys on the host. 
-	
-	```
-	# On your local Mac: 
-	# print the public key using cat function
-	# highlight text
-	# copy the entire line to your clipboard
-	(local-Mac)$ cat $HOME/.ssh/id_rsa_mykey1.pub
-	
-	
-	# Log into MSI host
-	(local-Mac)$ ssh USER@mangi.msi.umn.edu
-	
-	# Open the authorized keys file
-	(mangi.msi.umn.edu)$ nano $HOME/.ssh/authorized_keys
-	
-	# Paste your clipboard text at the end of this file. 
-	# Save (Ctrl - X)
 
-	```
+    ```
+    # On your local Mac: 
+    # print the public key using cat function
+    # highlight text
+    # copy the entire line to your clipboard
+    (local-Mac)$ cat $HOME/.ssh/id_rsa_mykey1.pub
+
+
+    # Log into MSI host
+    (local-Mac)$ ssh USER@mangi.msi.umn.edu
+
+    # Open the authorized keys file
+    (mangi.msi.umn.edu)$ nano $HOME/.ssh/authorized_keys
+
+    # Paste your clipboard text at the end of this file. 
+    # Save (Ctrl - X)
+
+    ```
 
 * Or use the ssh copy tool:
 
-	```
-	(local-Mac)$ ssh-copy-id -i $HOME/.ssh/id_rsa_mykey1 USER@mangi.msi.umn.edu
-	
-	```
+    ```
+    (local-Mac)$ ssh-copy-id -i $HOME/.ssh/id_rsa_mykey1 USER@mangi.msi.umn.edu
+
+    ```
 
 
 
@@ -111,12 +111,12 @@ You can specify additional `ssh` settings for your connection using a ssh config
 
 
 * Create an ssh config file on your Mac
-	
-	```
-	(local-Mac)$ nano ~/.ssh/config
-	```
-	
-	Copy and paste the following parameters inside this file. Specify the filename of your IdentityFile (i.e. your private key file created above). Then save.
+
+    ```
+    (local-Mac)$ nano ~/.ssh/config
+    ```
+
+    Copy and paste the following parameters inside this file. Specify the filename of your IdentityFile (i.e. your private key file created above). Then save.
     
     ```
     Host *github*
@@ -144,7 +144,7 @@ You can specify additional `ssh` settings for your connection using a ssh config
         XAuthLocation /opt/X11/bin/xauth
         # following line is equivalent to -C on command line
         Compression yes
-```
+    ```
 
 
 
@@ -152,38 +152,38 @@ You can specify additional `ssh` settings for your connection using a ssh config
 
 * This will allow you to "not" enter your ssh key passphrase every time you connect (it should even prevent you from entering your ssh passphrase after reboots).
 
-	```
-	ssh-add -K ~/.ssh/id_rsa_mykey1
-	ssh-add -A
-	```
+    ```
+    ssh-add -K ~/.ssh/id_rsa_mykey1
+    ssh-add -A
+    ```
 
 
 * You can do this automatically every time you reboot by entering the following to your Mac's `~/.bashrc` file:
 
 
-	```
-	# ---------------------------------------------------------------------
-	# Start the ssh agent
-	# ---------------------------------------------------------------------
-	
-	# Make sure we are attached to a tty
-	if /usr/bin/tty > /dev/null
-	then
-		# Check the output of "ssh-add -l" for identities
-		ssh-add -l | grep 'no identities' > /dev/null
-		if [ $? -eq 0 ]
-		then
-			# Load your identities.
-			echo "Adding IDs to ssh-agent"
-			ssh-add -K ~/.ssh/id_rsa_mykey1
-			ssh-add -A
-		else
-			# echo "Not adding keys to ssh-agent"
-			:
-		fi
-	fi
-	```
-	
+    ```
+    # ---------------------------------------------------------------------
+    # Start the ssh agent
+    # ---------------------------------------------------------------------
+
+    # Make sure we are attached to a tty
+    if /usr/bin/tty > /dev/null
+    then
+        # Check the output of "ssh-add -l" for identities
+        ssh-add -l | grep 'no identities' > /dev/null
+        if [ $? -eq 0 ]
+        then
+            # Load your identities.
+            echo "Adding IDs to ssh-agent"
+            ssh-add -K ~/.ssh/id_rsa_mykey1
+            ssh-add -A
+        else
+            # echo "Not adding keys to ssh-agent"
+            :
+        fi
+    fi
+    ```
+
 
 
 ## Test the connection using your key
@@ -192,17 +192,17 @@ You can specify additional `ssh` settings for your connection using a ssh config
 * If you specified your your ssh private key (IdentityFile) in your ssh config file (you don't need to specify it again on the command line). In addition, since we loaded your private key (IdentityFile) into the `ssh-agent` using the `ssh-add` commands, _you should "not" need to specify your private key on the command line, or type your passphrase!_
 
 
-	```
-	(local-Mac)$ ssh USER@mangi.msi.umn.edu
-	```
+    ```
+    (local-Mac)$ ssh USER@mangi.msi.umn.edu
+    ```
 
 
 
 * Hop to other MSI nodes. Since we are using the `ssh-agent` to forward your key, you should not need to enter your passphrase when connecting to other nodes at MSI.
 
-	```
-	(mangi.msi.umn.edu)$ ssh mesabi
-	```
+    ```
+    (mangi.msi.umn.edu)$ ssh mesabi
+    ```
 
 
 
