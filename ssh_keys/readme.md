@@ -137,7 +137,7 @@ You can specify additional `ssh` settings for your connection using a ssh config
 		ServerAliveCountMax 28800
 		AddKeysToAgent yes
 		UseKeychain yes
-		# following line is this is the path to your private key
+		# following line is the path to your private key
 		IdentityFile ~/.ssh/id_rsa_mykey1
 		NoHostAuthenticationForLocalhost yes
 		# make sure this is correct on your system
