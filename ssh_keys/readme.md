@@ -120,23 +120,30 @@ You can specify additional `ssh` settings for your connection using a ssh config
 	
 	```
 	Host *github*
-	        ForwardX11 no
+	    ForwardX11 no
 	
 	Host *
 		GatewayPorts no
 		StrictHostKeyChecking ask
-		ForwardAgent yes # equivalent to -A on command line
-		ForwardX11 yes # equivalent to -X on the command line
-		ForwardX11Trusted yes # equivalent to -Y on the command line		
-		RequestTTY force # equivalent to -t on command line
+		# following line is equivalent to -A on command line
+		ForwardAgent yes
+		# following line is equivalent to -X on the command line
+		ForwardX11 yes
+		# following line is equivalent to -Y on the command line	
+		ForwardX11Trusted yes
+		# following line is equivalent to -t on command line
+		RequestTTY force
 		ServerAliveInterval 15
 		ServerAliveCountMax 28800
 		AddKeysToAgent yes
 		UseKeychain yes
-		IdentityFile ~/.ssh/id_rsa_mykey1 # this is the path to your private key
+		# following line is this is the path to your private key
+		IdentityFile ~/.ssh/id_rsa_mykey1
 		NoHostAuthenticationForLocalhost yes
-		XAuthLocation /opt/X11/bin/xauth # make sure this is correct on your system
-		Compression yes # equivalent to -C on command line
+		# make sure this is correct on your system
+		XAuthLocation /opt/X11/bin/xauth
+		# following line is equivalent to -C on command line
+		Compression yes
 	```
 
 
