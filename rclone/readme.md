@@ -35,8 +35,8 @@ MSI has an `rclone` module installed on their system. Alternatively, you can loa
 	* n (new remote connection)
 	* name> todds_umn_gdrive (provide it a "remote" name)
 	* storage> 13 (google drive)
-	* client_id> (leave blank)
-	* client_secret> (leave blank)
+	* client_id> (leave blank, or follow the steps below)
+	* client_secret> (leave blank, or follow the steps below)
 	* scope> 1 (Full access all files, excluding Application Data Folder)
 	* root_folder_id> (leave blank)
 	* service_account_file> (leave blank)
@@ -48,6 +48,40 @@ MSI has an `rclone` module installed on their system. Alternatively, you can loa
 	* q (quit)
 
 
+
+#### How to generate personal `client_id` and `client_secret` values
+
+If you get any "rate limit exceeded" errors when using the `rclone` config above, you might want to create your own personal client id to use with `rclone`. This is pretty simple to set-up following the directions below:
+
+Rclone documentation: [https://rclone.org/drive/#making-your-own-client-id](https://rclone.org/drive/#making-your-own-client-id). 
+
+For example:
+
+* Access the Google Cloud Platform website (using any of your Google accounts, choose a personal Google account if the Google Cloud Platform is not available for your UMN acct.)
+* Agree to the terms and select country
+* Click the "Create Project" button
+    * Provide a project name (e.g. "Todds-Google-rclone")
+    * Organization (choose "No organization")
+    * Click Create button
+* Click the "+ Enable APIs and Services" button near the top of page
+    * In the API Library search box, search for "Google Drive API"
+    * Select this API and click "Enable"
+* In the left-hand sidebar of the page, choose the "Credentials" tab 
+    * Near the top of the page, click "Create Cedentials"
+    * Choose "OAuth client ID"
+    * Click "Configure Consent Screen" button
+    * Choose "External", click "Create" button
+    * Enter an App name (e.g. rclone) and enter your email address in two locations
+    * Click "Save and Continue"
+* Choose the "Credentials" tab on the left side bar
+* Click "Create Credentials" button again at the top of the screen
+* Choose "OAuth client id"
+* Choose Application type: "Desktop app"
+* Choose a name (default name is fine)
+* Click the "Create" button
+* Copy/paste/save the provided "client_id" and "client_secret" values and use them when creating an rclone config (see above section)
+	    
+	    
 
 
 ### Push a file from panasas to google drive
