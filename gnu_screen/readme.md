@@ -57,7 +57,7 @@ This will clear your terminal window and you are now running inside a GNU Screen
 * Or you can start an interactive job:
 
 	```	
-	srun --pty --x11 --nodes=1 --ntasks-per-node=1 --tmp=16G --partition=interactive --mem=8gb --cpus-per-task=1 --time=1:00:00 bash -i
+	srun --pty --x11 --nodes=1 --ntasks-per-node=1 --tmp=16G --partition=interactive --mem=8gb --cpus-per-task=1 --time=1:00:00 bash -l
 	```
 
 
