@@ -53,6 +53,8 @@ Windows:
 	8. (Files tab) Custom Editors: + to add new, File Extension: txt; Choose: BBEdit
 	9. (Files tab) Custom Editors: + to add new, File Extension: *; Choose: BBEdit
 	10. ... Repeat for all your favorite file types and apps.
+	
+	Check out this screencast demonstrating how to download, install, and setup Transmit and use it with BBEdit on a Mac: [https://drive.google.com/file/d/11hS4EBIQwK8nR4CXhC4odNBdTIGK9YJR/view](https://drive.google.com/file/d/11hS4EBIQwK8nR4CXhC4odNBdTIGK9YJR/view).
 
 * Cyberduck
 	1. Cyberduck > Preferences...
