@@ -62,3 +62,12 @@ I use a tool called `mupdf-x11` to view PDFs saved on MSI tier1 Panasas.
 [mupdf example](mupdf/readme.md)
 
 
+
+## How to find disk usage using Krona
+
+I use a tool called `Krona` to examine disk usage in a fun way!
+
+[Krona disk usage example](disk_usage/readme.md)
+
+
+
