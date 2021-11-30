@@ -29,18 +29,18 @@ Unfortunately, this tool is not installed as a system wide module on MSI. Howeve
 ## Usage tips
 
 
-    ```
-    mkdir -p /home/lmnp/knut0297/software/tips/disk_usage
-    cd /home/lmnp/knut0297/software/tips/disk_usage
+```
+mkdir -p /home/lmnp/knut0297/software/tips/disk_usage
+cd /home/lmnp/knut0297/software/tips/disk_usage
 
-    MY_BIG_DIR="/home/lmnp/knut0297/software/tips"
+MY_BIG_DIR="/home/lmnp/knut0297/software/tips"
 
-    ImportDiskUsage.pl $MY_BIG_DIR
+ImportDiskUsage.pl $MY_BIG_DIR
 
-    # The output file is always named "du.krona.html"
-    # Change output filename
-    mv du.krona.html $(basename $MY_BIG_DIR).html
-    ```
+# The output file is always named "du.krona.html"
+# Change output filename
+mv du.krona.html $(basename $MY_BIG_DIR).html
+```
 
 
 
