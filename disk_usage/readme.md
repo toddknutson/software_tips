@@ -46,7 +46,10 @@ mv du.krona.html $(basename $MY_BIG_DIR).html
 
 Open the HTML file in a web browser and explore!
 
-See an example output file: [http://marbl.github.io/Krona/examples/du.krona.html](http://marbl.github.io/Krona/examples/du.krona.html)
+See an example output files: 
+
+* [./tips.html](./tips.html)
+* [http://marbl.github.io/Krona/examples/du.krona.html](http://marbl.github.io/Krona/examples/du.krona.html)
 
 
 
