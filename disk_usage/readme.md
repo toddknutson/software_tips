@@ -6,7 +6,7 @@ Todd Knutson
 
 ## Introduction 
 
-Frequently, I want to find the disk usage stats for a directory that includes many small or larger files. This can easily be done using the unix command `du`. Instead, `Krona` uses `du` in the background and generates a useful tree diagram HTML file. This allows you to dig into the contents of files and directories, displaying their size and age. A similar tool is available for macOS, called [DaisyDisk](https://daisydiskapp.com). 
+Frequently, I want to find disk usage stats for a directory that includes many small or large files. This can easily be done using the unix command `du`, but is difficult to explore the usage in a easy way. `Krona` uses `du` in the background, but then generates a useful tree diagram HTML file. This allows you to dig into the files and directories, displaying their size and age. A similar tool is available for macOS, called [DaisyDisk](https://daisydiskapp.com). 
 
 
 
@@ -22,7 +22,7 @@ Unfortunately, this tool is not installed as a system wide module on MSI. Howeve
 	# Run the following command to load my module
 	# This will not change your $MODULEPATH variable
 	
-	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load krona_2.7.plus42commits.noextrafiles
+	MODULEPATH=/home/lmnp/knut0297/software/modulesfiles module load krona/2.7.plus42commits.noextrafiles
 	```
 
 
