@@ -54,6 +54,14 @@ Windows:
 	9. (Files tab) Custom Editors: + to add new, File Extension: *; Choose: BBEdit
 	10. ... Repeat for all your favorite file types and apps.
 	
+	If you use ssh keys to connect to MSI hosts:
+	
+	* Setup a `Host` in `~/.ssh/config` to specify the private key file (`IdentityFile`)
+	* Do not tell Transmit about your keys (e.g. use password based authentication in Transmit)
+	* Enter your ssh key passphrase into the "Password" field when setting up Transmit
+	* Transmit will use your ssh key for the connection and enter the passphrase automatically
+
+	
 	Check out this screencast demonstrating how to download, install, and setup Transmit and use it with BBEdit on a Mac: [https://drive.google.com/file/d/11hS4EBIQwK8nR4CXhC4odNBdTIGK9YJR/view](https://drive.google.com/file/d/11hS4EBIQwK8nR4CXhC4odNBdTIGK9YJR/view).
 
 * Cyberduck
