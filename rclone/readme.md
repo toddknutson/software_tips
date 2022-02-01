@@ -198,6 +198,47 @@ For example:
 
 
 
+## Gene Expression Omnibus (GEO)
+
+Uploading data to the [GEO](https://www.ncbi.nlm.nih.gov/geo) database can be tedious. Rclone can connect to the public FTP server and manage the data transfer. 
+
+### Configure the remote connection
+
+
+* Create (or modify) an rclone config file. This process only needs to be done once. The resulting config file is stored in your home directory. **NOTE: the HOST, USERNAME, and PASSWORD are the same for everyone (public connection).** But where you transfer the files will be specific to each user. After logging into the GEO website, find your personal upload directory name here: [https://www.ncbi.nlm.nih.gov/geo/info/submissionftp.html](https://www.ncbi.nlm.nih.gov/geo/info/submissionftp.html).
+
+		rclone config
+		cat $HOME/.config/rclone/rclone.conf
+
+
+* `rclone config` ANSWERS:
+	* n (new remote connection)
+	* name> todds_geo (provide it a "remote" name)
+	* Storage> ftp (FTP Connection)
+	* host> ftp-private.ncbi.nlm.nih.gov
+	* user> geoftp
+	* port> (Leave blank for default, press Enter)
+	* FTP password> y (Yes type in my own password)
+	* password> rebUzyi1 (Enter the password)
+	* password> rebUzyi1 (Confirm the password)
+	* tls> (Leave blank for default, press Enter)
+	* explicit_tls> (Leave blank for default, press Enter)
+	* n (no, do not edit advanced config)
+	* y (yes, this is OK)
+	* q (quit)
+
+
+
+
+### Push a file from panasas to the GEO FTP server
+
+* Copy a single file (or a symlinked file) located at the relative path "data/file.txt" on panasas to a directory on GEO FTP called "uploads/toddknutson_ABCDEFGHIJKLMNOP".
+
+		rclone copy -v --copy-links data/file.txt todds_geo:uploads/toddknutson_ABCDEFGHIJKLMNOP
+
+
+
+
 # Examples
 
 ### How to push one really large file (1 TB) from panasas to ceph:
