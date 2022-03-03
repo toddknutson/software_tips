@@ -44,15 +44,17 @@ Windows:
 * Transmit
 
 	1. Transmit > Preferences...
-	2. (General tab) Default FTP client: Transmit
-	3. (General tab) Windows open with: None & None
-	4. (General tab) Tab title shows: Folder
-	5. (Files tab) Double Click Action: Edit in External Editor
-	6. (Files tab) Custom Editors: + to add new, File Extension: xlsx; Choose: Microsoft Excel
-	7. (Files tab) Custom Editors: + to add new, File Extension: pdf; Choose: Preview
-	8. (Files tab) Custom Editors: + to add new, File Extension: txt; Choose: BBEdit
-	9. (Files tab) Custom Editors: + to add new, File Extension: *; Choose: BBEdit
-	10. ... Repeat for all your favorite file types and apps.
+	1. (General tab) Default FTP client: Transmit
+	1. (General tab) Windows open with: None & None
+	1. (General tab) Tab title shows: Folder
+	1. (Files tab) Double Click Action: Edit in External Editor
+	    * (Files tab) Custom Editors: + to add new, File Extension: xlsx; Choose: Microsoft Excel
+	    * (Files tab) Custom Editors: + to add new, File Extension: pdf; Choose: Preview
+	    * (Files tab) Custom Editors: + to add new, File Extension: txt; Choose: BBEdit
+	    * (Files tab) Custom Editors: + to add new, File Extension: *; Choose: BBEdit
+	    * ... Repeat for all your favorite file types and apps.
+	1. (Advanced tab) Click on "Advanced Server Settings..."
+	    * Network: (Check the box) Limit Server to "1" connections
 	
 	If you use ssh keys to connect to MSI hosts:
 	
