@@ -1,7 +1,7 @@
 # How to find disk usage using Krona
 
 Todd Knutson
-2021-11-30
+
 
 
 ## Introduction 

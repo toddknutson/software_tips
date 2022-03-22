@@ -1,7 +1,7 @@
 # How to use GNU Screen on MSI systems
 
 Todd Knutson  
-2020-03-19  
+ 
 
 
 

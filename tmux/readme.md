@@ -1,7 +1,7 @@
 # How to use tmux on MSI systems
 
 Todd Knutson  
-2020-09-09
+
 
 
 

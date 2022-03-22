@@ -1,7 +1,7 @@
 # How to view PDFs on MSI
 
 Todd Knutson
-2021-02-19
+
 
 
 ## Introduction 

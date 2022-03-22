@@ -1,7 +1,6 @@
 # How to connect to MSI systems
 
 Todd Knutson  
-2021-01-29
 
 
 

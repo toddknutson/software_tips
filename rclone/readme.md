@@ -3,8 +3,7 @@
 # How to use Rclone on MSI systems.
 
 Todd Knutson   
-2020-05-22    
-last update: 2022-02-01
+
 
 
 ## Introduction

@@ -1,8 +1,7 @@
 # How to use R Markdown on MSI systems
 
 Todd Knutson  
-2020-05-05  
-last update: 2020-12-10
+
 
 
 ## Introduction
