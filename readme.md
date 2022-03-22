@@ -71,3 +71,11 @@ I use a tool called `Krona` to examine disk usage in a fun way!
 
 
 
+## How to get information from your scripts
+
+I use `trap` statements and a few other commands at the beginning of my shell scripts for easy reporting or monitoring purposes.
+
+[Script reporting example](script_reporting/readme.md)
+
+
+
