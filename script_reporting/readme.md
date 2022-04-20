@@ -42,7 +42,7 @@ Note a few things:
 #######################################################################
 
 # Exit script immediately upon error
-set -e
+set -o errexit -o errtrace -o pipefail -o functrace
 
 
 function trap_my_error {
