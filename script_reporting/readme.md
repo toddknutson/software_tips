@@ -20,6 +20,7 @@ Note a few things:
 * A `THREADS` variable is created that holds the number of threads the slurm job requested (i.e. `SLURM_CPUS_PER_TASK`), or if it's not currently running a slurm job, `THREADS` is set to `1`. This allows for easy and uniform access (whether running a job or not) to the number of threads available for the script. 
 * If an error occurs, a `trap` function will run, reporting the last bash command run and it's exit code.
 * When the script ends (for any reason, error or success), a `trap` function will run, reporting the date/time, print the current env variables, and print slurm job details (if running a slurm job)
+* Replace the email address in the follow line, below: `#SBATCH --mail-user=USER@umn.edu`.
 
 
 ```
@@ -34,6 +35,7 @@ Note a few things:
 #SBATCH --output=%x.o%j
 #SBATCH --export=NONE
 #SBATCH --mail-type=ALL
+#SBATCH --mail-user=USER@umn.edu
 #SBATCH --partition=amdsmall
 
 
