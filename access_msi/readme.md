@@ -75,7 +75,7 @@ Windows:
 
 ### Connecting to MSI
 
-> **Note**: You can watch a screencast of how to log on to MSI using this link. This video is currently a little out of date, but I think still works. [https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0](https://drive.google.com/open?id=0B4n-3EXQfHqpMjBIZGVPaDZvTU0)
+> **Note**: You can watch a screencast of how to log on to MSI using this link. This video is currently a little out of date, but I think still works. [https://drive.google.com/file/d/0B4n-3EXQfHqpMjBIZGVPaDZvTU0/view?usp=sharing&resourcekey=0-0hSsj7xtkdgRxcCQAq3VRA](https://drive.google.com/file/d/0B4n-3EXQfHqpMjBIZGVPaDZvTU0/view?usp=sharing&resourcekey=0-0hSsj7xtkdgRxcCQAq3VRA)
 
 
 
