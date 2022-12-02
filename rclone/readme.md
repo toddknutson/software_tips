@@ -140,7 +140,7 @@ For example:
 * `rclone config` ANSWERS:
 	* n (new remote connection)
 	* name> todds_umn_ceph (provide it a "remote" name)
-	* Storage> 4 (Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc))
+	* Storage> 5 (Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc))
 	* provider> 3 (Ceph)
 	* env_auth> 1 (Enter AWS credentials in the next step)
 	* access_key_id> (copy/paste "access_key_id" from msi.umn.edu)
